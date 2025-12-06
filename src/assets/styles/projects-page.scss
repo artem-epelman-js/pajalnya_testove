@@ -1,0 +1,49 @@
+.projects-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+}
+
+
+.filters-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  > * {
+    min-width: 180px;
+  }
+}
+
+.creator-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 300px;
+
+  .creator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .error {
+        color: #f87171;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+
+.projects-table {
+  margin-top: 12px;
+  cursor: pointer;
+}

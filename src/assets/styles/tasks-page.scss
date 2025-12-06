@@ -1,0 +1,89 @@
+
+.tasks-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  padding: 16px;
+}
+
+.tasks-header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+
+  color: #f3f4f6;
+  border-radius: 12px;
+
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tasks-creator {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 35%
+
+  }
+
+  /* Фильтры (dropdown) */
+  > div:last-child {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+/* Форма создания задачи */
+.creator-form {
+  display: flex;
+  flex-direction: column;
+  width: 130%;
+  gap: 16px;
+
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #374151;
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .error {
+      color: #f87171;
+      font-size: 12px;
+    }
+  }
+
+  /* Вторая строка: три поля в ряд */
+  .form-field.multi {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .submit-btn {
+    width: auto; /* Кнопки НЕ на всю ширину */
+  }
+}
+
+
+/* Сообщение "нет задач" */
+.no-tasks,
+div[v-if="tasksStore.data.length === 0 && !tasksStore.loading"] {
+  margin-top: 24px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 16px;
+}

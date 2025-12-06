@@ -1,0 +1,27 @@
+.kanban-task {
+  cursor: grab;
+  background: #111827; /* глубокий тёмный фон */
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  transition: transform .15s ease, box-shadow .15s ease;
+  margin-bottom: 15px;
+
+  &:active {
+    cursor: grabbing;
+    transform: scale(0.98);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #f3f4f6; /* светлый текст */
+  }
+
+  &__status {
+    font-size: 14px;
+    color: #9ca3af; /* серый подтон */
+  }
+}
