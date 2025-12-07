@@ -24,6 +24,7 @@ import draggable from 'vuedraggable'
 
 
 import '@/assets/styles/kanban-task.scss'
+import '@/assets/main.css'
 import '@/assets/styles/kanban-column.scss'
 import '@/assets/styles/projects-page.scss'
 import '@/assets/styles/tasks-page.scss'

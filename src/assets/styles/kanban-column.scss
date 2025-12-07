@@ -1,14 +1,13 @@
-/* Контейнер, где три канбан-колонки */
 .kanban-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
+  color: #2c2d2d;
   align-items: start;
 }
 
-/* Одна колонка */
 .kanban-column {
   display: flex;
   flex-direction: column;
@@ -21,27 +20,27 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #e5e7eb; /* светлый текст на тёмном */
+    color: #585959;
 
     .kanban-column__counter {
       opacity: 0.6;
       font-weight: 400;
       font-size: 16px;
-      color: #9ca3af; /* серый */
+      color: #3b82f6;
     }
   }
 
   &__body {
     height: 100%;
     padding: 12px;
-    border: 2px solid #374151; /* тёмная рамка */
+    border: 2px solid #374151;
     border-radius: 8px;
-    background: #1f2937; /* тёмно-серый, как будто всё ещё день, но нет */
+    background: #1f2937;
     transition: border-color 0.15s ease, background-color 0.15s ease;
 
     &--dragging {
-      border-color: #3b82f6; /* синий, заметный */
-      background: #111827; /* ещё темнее */
+      border-color: #3b82f6;
+      background: #111827;
       border-style: dashed;
     }
   }

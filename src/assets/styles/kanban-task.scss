@@ -1,6 +1,6 @@
 .kanban-task {
   cursor: grab;
-  background: #111827; /* глубокий тёмный фон */
+  background: #111827;
   border-radius: 8px;
   padding: 12px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.4);
@@ -17,11 +17,11 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 6px;
-    color: #f3f4f6; /* светлый текст */
+    color: #92b725;
   }
 
   &__status {
     font-size: 14px;
-    color: #9ca3af; /* серый подтон */
+    color: #6363d3;
   }
 }

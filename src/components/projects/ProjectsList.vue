@@ -190,12 +190,12 @@ onMounted(() => {
 
 
     <DataTable
-
         :value="projectsStore.data"
         resizableColumns
         columnResizeMode="fit"
         tableStyle="width: 100vw"
         @row-click="goToProject"
+        style="cursor: pointer"
     >
       <Column field="id" header="ID проєкту" />
       <Column field="name" header="Назва" />

@@ -13,7 +13,7 @@
   gap: 24px;
   padding: 24px;
 
-  color: #f3f4f6;
+  color: #6e6c6c;
   border-radius: 12px;
 
   h2 {
@@ -36,7 +36,6 @@
 
   }
 
-  /* Фильтры (dropdown) */
   > div:last-child {
     display: flex;
     gap: 16px;
@@ -44,7 +43,6 @@
   }
 }
 
-/* Форма создания задачи */
 .creator-form {
   display: flex;
   flex-direction: column;
@@ -66,7 +64,6 @@
     }
   }
 
-  /* Вторая строка: три поля в ряд */
   .form-field.multi {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -74,12 +71,12 @@
   }
 
   .submit-btn {
-    width: auto; /* Кнопки НЕ на всю ширину */
+    width: auto;
   }
 }
 
 
-/* Сообщение "нет задач" */
+
 .no-tasks,
 div[v-if="tasksStore.data.length === 0 && !tasksStore.loading"] {
   margin-top: 24px;
