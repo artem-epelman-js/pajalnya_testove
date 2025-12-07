@@ -9,6 +9,7 @@ import KanbanTasks from "@/components/tasks/KanbanTask.vue";
 import KanbanCard from "@/components/tasks/KanbanCard.vue";
 import {useProjectsStore} from "@/stores/projects-store";
 import {ProjectInterface} from "@/interfaces/project.interface";
+import {taskValidator} from "@/validators/task.validator";
 
 
 
@@ -131,12 +132,28 @@ const resetFormState = () => {
 }
 
 // handlers
+// handlers
 const handleSubmit = () => {
   formErrors.value = {}
+  const validationResult = taskValidator.safeParse(formState);
 
-  tasksStore.create(projectId.value, {
-    ...formState,
-  })
+  if (!validationResult.success) {
+
+    const newErrors: Record<string, string> = {};
+    validationResult.error.issues.forEach(issue => {
+
+      const field = issue.path[0] as keyof TaskPayloadInterface;
+
+      if (!newErrors[field]) {
+        newErrors[field] = issue.message;
+      }
+    });
+
+    formErrors.value = newErrors;
+    return;
+  }
+  tasksStore.create(projectId.value, validationResult.data)
+
   resetFormState()
 }
 
