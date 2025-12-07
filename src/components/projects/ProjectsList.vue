@@ -15,13 +15,12 @@ const projectsStore = useProjectsStore()
 
 // hooks
 const router = useRouter()
-
 // reactive const
 const inputName = ref('')
 const selectedStatus = ref<Status | null>(null)
 const selectedFilter = ref<string | null>(null)
 const isOpenCreator = ref<boolean>(false)
-const formState = reactive<ProjectPayloadInterface>({ name:'', description:'', status:Status.To_do })
+const formState = reactive<ProjectPayloadInterface>({ name:'', description:'', status:Status.To_do, tasks_count:0})
 let formErrors = reactive<{ name?: string; description?: string }>({})
 
 // base functions

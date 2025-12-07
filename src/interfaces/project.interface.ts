@@ -13,4 +13,5 @@ export interface ProjectPayloadInterface {
     name: string,
     description: string,
     status: string,
+    tasks_count?:number,
 }
