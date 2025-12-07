@@ -7,11 +7,14 @@ import {Status, TaskInterface, TaskPayloadInterface} from "@/interfaces/task.int
 
 import KanbanTasks from "@/components/tasks/KanbanTask.vue";
 import KanbanCard from "@/components/tasks/KanbanCard.vue";
+import {useProjectsStore} from "@/stores/projects-store";
+import {ProjectInterface} from "@/interfaces/project.interface";
 
 
 
 
 const tasksStore = useTasksStore()
+const projectsStore = useProjectsStore()
 
 const todo = computed(() => tasksStore.data.filter(t => t.status === Status.To_do))
 const inProgress = computed(() => tasksStore.data.filter(t => t.status === Status.In_progress))
@@ -169,6 +172,7 @@ function onRowReorder(event: any) {
 
 // base const
 const performers = ["Іван", "Петро", "Олег", "Анна", "Марія", "Олена"]
+const currentProject = ref<ProjectInterface>(null)
 
 // create and save filters
 const FILTERS_KEY = 'tasks_filters'
@@ -195,19 +199,22 @@ const resetFilters = () => {
 }
 
 // lifecycle hooks
-onMounted(() => {
+onMounted(async() => {
   const f: any = loadFilters()
 
   performerFilter.value = f.performer ?? null
   statusFilter.value = f.status ?? null
 
 
-  loadFilteredTasks()
+  await loadFilteredTasks()
 
   const savedVariant = localStorage.getItem('display_variant')
   if (savedVariant !== null) {
     displayVariant.value = JSON.parse(savedVariant)
   }
+
+  currentProject.value = await projectsStore.getById(projectId.value)
+
 })
 
 </script>
@@ -216,7 +223,7 @@ onMounted(() => {
   <div class="tasks-page">
     <div>
       <div class="tasks-header">
-        <h2>Завдання проєкту {{ projectId }}</h2>
+        <h2>Проєкт №{{ projectId }}. {{currentProject?.name}}</h2>
         <div>
           <ToggleSwitch v-model="displayVariant" class="view-switch"/>
           <span>Переключити вигляд</span>
